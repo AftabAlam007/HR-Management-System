@@ -4,7 +4,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { jwtDecode } from 'jwt-decode';
 import DashboardLayout from "../../../components/layout/DashboardLayout";
-import ProfileImg from "../../../assets/Image/ProfileImg.png";
 import {
   CalendarDaysIcon,
   CurrencyDollarIcon,
@@ -110,7 +109,7 @@ const UserDashboard = () => {
                 <InfoCard title="My Profile" actionText="View Profile" onAction={handleProfileClick}>
                     {profileData ? (
                         <div className="flex items-center space-x-4">
-                          <img src={ProfileImg} alt="Profile" className="h-16 w-16 rounded-full object-cover" />
+                          <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(profileData.fullName || 'User')}&background=0d9488&color=fff&rounded=true&bold=true`} alt="Profile" className="h-16 w-16 rounded-full object-cover shadow-sm" />
                           <div>
                             <p className="font-bold text-lg text-gray-900 dark:text-white">{profileData.fullName}</p>
                             <p className="text-gray-600 dark:text-gray-400">{profileData.jobTitle || 'N/A'}</p>

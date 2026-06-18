@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import DashboardLayout from "../../../components/layout/DashboardLayout";
 import { PencilIcon } from "../../../components/ui/Icons";
-import profileImg from "../../../assets/Image/profileimg.png";
 
 const menuItems = [
   "Personal Details",
@@ -30,9 +29,9 @@ const UserProfile = () => {
             <div className="flex flex-col items-center space-y-6">
               <div className="bg-yellow-400 rounded-full p-6">
                 <img
-                  src={profileImg}
+                  src={`https://ui-avatars.com/api/?name=Aftab+Alam&background=0d9488&color=fff&rounded=true&bold=true`}
                   alt="Profile Avatar"
-                  className="h-40 w-40 rounded-full"
+                  className="h-40 w-40 rounded-full object-cover shadow-sm bg-white"
                 />
               </div>
               <div className="text-center">
