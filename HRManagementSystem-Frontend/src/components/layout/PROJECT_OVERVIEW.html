@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkBridge - Project Architecture Overview</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #121212;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #39ff14;
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.2);
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            border-bottom: 3px solid #ff00ff;
+            text-shadow: 0 0 8px #ff00ff, 0 0 12px rgba(255, 0, 255, 0.7);
+        }
+        h2 {
+            border-bottom: 2px solid #39ff14;
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+        }
+        h3 {
+            color: #f0f0f0;
+            border-bottom: 1px dashed #ff7f00;
+        }
+        code {
+            background-color: #333;
+            color: #ff7f00; /* Neon Orange */
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            border: 1px solid #444;
+        }
+        pre {
+            background-color: #212529;
+            color: #39ff14; /* Neon Green */
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #39ff14;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .tech-stack {
+            font-weight: bold;
+            color: #39ff14; /* Neon Green */
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .flow-step .number {
+            background-color: #ff00ff; /* Neon Pink/Magenta */
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WorkBridge: HR Management System</h1>
+        <p style="text-align: center; font-style: italic; color: #555;">An overview of the project's technical architecture for interview preparation.</p>
+
+        <!-- ======================= FRONTEND ======================= -->
+        <div class="section">
+            <h2>1. Frontend (Client-Side)</h2>
+            <p><span class="tech-stack">Technology Stack:</span> React, React Router, Tailwind CSS, Axios</p>
+            
+            <h3>Explanation (English)</h3>
+            <p>
+                The frontend is built using <strong>React</strong>. It operates as a <strong>Single-Page Application (SPA)</strong>, which means the website runs on a single page and content loads dynamically without requiring full page reloads. For styling, <strong>Tailwind CSS</strong> is used to build modern, responsive designs quickly. <strong>React Router</strong> handles the page navigation, and <strong>Axios</strong> is used to make HTTP requests (GET, POST, etc.) to communicate with the backend APIs.
+            </p>
+
+            <h3>Explanation (Hinglish)</h3>
+            <p>
+                Frontend <strong>React</strong> use karke banaya gaya hai. Ye ek <strong>Single-Page Application (SPA)</strong> hai, jiska matlab hai ki poori website ek hi page par chalti hai aur content dynamically load hota hai. Isse user experience bahut fast aur smooth rehta hai.
+            </p>
+            <ul>
+                <li>
+                    <strong>Styling:</strong> Design ke liye <strong>Tailwind CSS</strong> use kiya gaya hai. Ye ek utility-first CSS framework hai jisse hum direct HTML (JSX) mein hi classes dekar design banate hain. Isse custom CSS likhne ki zaroorat kam padti hai aur development fast hota hai.
+                    <br><em>Example: <code>&lt;div class="bg-green-500 text-white p-4 rounded-lg"&gt;</code></em>
+                </li>
+                <li>
+                    <strong>Routing (Page Navigation):</strong> Alag-alag pages (jaise <code>/login</code>, <code>/dashboard</code>, <code>/hr/employees</code>) ke beech navigation <strong>React Router</strong> library se handle hota hai.
+                </li>
+                <li>
+                    <strong>API Communication:</strong> Frontend, backend se data laane aur bhejne ke liye <strong>Axios</strong> library ka use karta hai. Ye backend ke REST API endpoints par HTTP requests (GET, POST, PUT, DELETE) bhejta hai.
+                </li>
+                <li>
+                    <strong>State Management:</strong> Simple state management ke liye React ke built-in hooks (<code>useState</code>, <code>useEffect</code>) use kiye gaye hain.
+                </li>
+                <li>
+                    <strong>Component Structure:</strong> Code ko reusable components mein toda gaya hai, jaise <code>Navbar</code>, <code>Footer</code>, <code>DashboardLayout</code>, aur alag-alag modals (<code>ApplicantDetailsModal</code>, <code>CreateHrModal</code>).
+                </li>
+            </ul>
+        </div>
+
+        <!-- ======================= BACKEND ======================= -->
+        <div class="section">
+            <h2>2. Backend (Server-Side)</h2>
+            <p><span class="tech-stack">Technology Stack:</span> Java, Spring Boot, Spring Security, Spring Data JPA (Hibernate), Maven</p>
+
+            <h3>Explanation (English)</h3>
+            <p>
+                The backend is developed using the <strong>Spring Boot (Java)</strong> framework. It functions as a <strong>RESTful API server</strong> that processes incoming requests from the frontend, executes the core business logic, and interacts with the database. The architecture follows a standard 3-tier pattern: <strong>Controller Layer</strong> (handles API endpoints), <strong>Service Layer</strong> (contains business logic), and <strong>Repository Layer</strong> (interacts with the database using Spring Data JPA). For security, it uses <strong>Spring Security</strong> with <strong>JWT (JSON Web Tokens)</strong> to authenticate and authorize users securely.
+            </p>
+
+            <h3>Explanation (Hinglish)</h3>
+            <p>
+                Backend <strong>Spring Boot (Java)</strong> framework mein bana hai. Ye ek <strong>RESTful API server</strong> hai jo frontend se aane wali requests ko handle karta hai, business logic execute karta hai, aur database se interact karta hai.
+            </p>
+            
+            <h3>Architecture (3-Tier)</h3>
+            <ul>
+                <li>
+                    <strong>Controller Layer (<code>@RestController</code>):</strong> Ye layer API endpoints define karti hai (e.g., <code>/auth/login</code>, <code>/api/hr/employees</code>). Iska kaam frontend se request lena, usko validate karna, aur aage Service layer ko call karna hai.
+                </li>
+                <li>
+                    <strong>Service Layer (<code>@Service</code>):</strong> Yahan saara main business logic likha hota hai. For example, ek naye user ko register karna, uske liye password generate karna, ya leave request ko approve/deny karna. Ye layer Repository layer se interact karti hai.
+                </li>
+                <li>
+                    <strong>Repository Layer (<code>@Repository</code>):</strong> Ye <strong>Spring Data JPA</strong> interfaces hote hain jo database se interact karte hain. Humein complex SQL queries likhne ki zaroorat nahi padti. JPA (Hibernate) humare liye queries generate kar deta hai.
+                    <br><em>Example: <code>userRepository.findByEmail(email)</code></em>
+                </li>
+                <li>
+                    <strong>Model/Entity Layer (<code>@Entity</code>):</strong> Ye simple Java classes (POJOs) hoti hain jo database tables ko represent karti hain. Har class ek table hoti hai aur uske variables columns hote hain.
+                </li>
+            </ul>
+
+            <h3>Security</h3>
+            <p>
+                Security ke liye <strong>Spring Security</strong> aur <strong>JSON Web Tokens (JWT)</strong> ka use kiya gaya hai.
+            </p>
+            <ol>
+                <li>Jab user login karta hai, toh backend ek encrypted JWT generate karke frontend ko bhejta hai.</li>
+                <li>Frontend is token ko <code>localStorage</code> mein save kar leta hai.</li>
+                <li>Har agli protected API request ke saath, frontend ye token <code>Authorization: Bearer &lt;token&gt;</code> header mein bhejta hai.</li>
+                <li>Backend mein ek JWT filter is token ko validate karta hai. Agar token valid hai, toh user ko request access karne ki permission milti hai.</li>
+            </ol>
+        </div>
+
+        <!-- ======================= DATABASE ======================= -->
+        <div class="section">
+            <h2>3. Database</h2>
+            <p><span class="tech-stack">Technology:</span> MySQL (or any relational database like PostgreSQL)</p>
+            
+            <h3>Explanation (English)</h3>
+            <p>
+                All critical application data, including user details, employee records, and HR tasks, is securely stored in a relational database, specifically <strong>MySQL</strong>. The backend communicates with this database using <strong>JPA/Hibernate (ORM)</strong>, which allows us to manipulate database records using Java objects directly without writing complex raw SQL queries.
+            </p>
+
+            <h3>Explanation (Hinglish)</h3>
+            <p>
+                Saara data (users, employees, jobs, etc.) ek relational database jaise <strong>MySQL</strong> mein store hota hai.
+            </p>
+            <ul>
+                <li>
+                    <strong>ORM (Object-Relational Mapping):</strong> Backend aur database ke beech mein <strong>JPA/Hibernate</strong> ORM ka kaam karta hai. Isse humein Java objects (Entities) ke through hi database operations (Create, Read, Update, Delete) karne ki facility milti hai. Humein raw SQL likhne se bachata hai.
+                </li>
+            </ul>
+        </div>
+
+        <!-- ======================= WORKFLOW ======================= -->
+        <div class="section">
+            <h2>4. Overall Workflow (Example: User Login)</h2>
+            <p>The complete flow of a user logging into the system is explained below (English & Hinglish):</p>
+            
+            <div class="flow-step">
+                <div class="number">1</div>
+                <div><strong>User Action:</strong> The user enters their email and password on the React Login page and clicks "Sign In". <br><span style="color: #aaa; font-size: 0.9em;"><em>(User, React app ke Login page par apna email aur password enter karke "Sign In" button par click karta hai.)</em></span></div>
+            </div>
+            <div class="flow-step">
+                <div class="number">2</div>
+                <div><strong>Frontend (React):</strong> The <code>axios</code> library sends a POST request with the credentials in JSON format to the backend's <code>/auth/login</code> endpoint. <br><span style="color: #aaa; font-size: 0.9em;"><em>(<code>axios</code> library ek POST request backend ke <code>/auth/login</code> endpoint par bhejti hai.)</em></span></div>
+            </div>
+            <div class="flow-step">
+                <div class="number">3</div>
+                <div><strong>Backend (Spring Boot):</strong> The <code>AuthController</code> receives this HTTP request. <br><span style="color: #aaa; font-size: 0.9em;"><em>(<code>AuthController</code> is request ko receive karta hai.)</em></span></div>
+            </div>
+            <div class="flow-step">
+                <div class="number">4</div>
+                <div><strong>Backend (Service & Repo):</strong> The <code>AuthService</code> uses <code>UserRepository</code> to verify if the user exists in the database and if the passwords match. <br><span style="color: #aaa; font-size: 0.9em;"><em>(<code>AuthService</code>, database mein check karta hai ki credentials sahi hain ya nahi.)</em></span></div>
+            </div>
+            <div class="flow-step">
+                <div class="number">5</div>
+                <div><strong>Backend (Security):</strong> If the credentials are correct, <code>JwtService</code> generates a secure JWT (JSON Web Token). <br><span style="color: #aaa; font-size: 0.9em;"><em>(Agar credentials sahi hain, toh ek naya JWT generate hota hai.)</em></span></div>
+            </div>
+            <div class="flow-step">
+                <div class="number">6</div>
+                <div><strong>Backend (Response):</strong> The Controller sends this JWT back to the frontend as an HTTP response. <br><span style="color: #aaa; font-size: 0.9em;"><em>(Controller, frontend ko response mein ye JWT bhej deta hai.)</em></span></div>
+            </div>
+            <div class="flow-step">
+                <div class="number">7</div>
+                <div><strong>Frontend (React):</strong> The React app saves this token in <code>localStorage</code> and redirects the user to their dashboard based on their role. <br><span style="color: #aaa; font-size: 0.9em;"><em>(React app is token ko <code>localStorage</code> mein save karke dashboard par redirect kar deta hai.)</em></span></div>
+            </div>
+            <div class="flow-step">
+                <div class="number">8</div>
+                <div><strong>Future Requests:</strong> For any future requests to protected routes, this JWT is attached to the <code>Authorization</code> header so the backend can identify the user. <br><span style="color: #aaa; font-size: 0.9em;"><em>(Ab har API call ke <code>Authorization</code> header mein ye JWT bheja jayega.)</em></span></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

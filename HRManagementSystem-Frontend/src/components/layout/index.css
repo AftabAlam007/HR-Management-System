@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+/* Add this to your index.css or App.css */
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-animation 5s ease infinite;
+}
+
+/* Blinking Cursor for typing effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #34d399; } /* A neon green color */
+}
+.typing-cursor {
+  border-right: .15em solid #34d399;
+  animation: blink-caret 1s step-end infinite;
+}
+
+/* RGB Text Glow for Navbar links */
+@keyframes rgb-text-glow {
+  0% { text-shadow: 0 0 3px #059669, 0 0 5px #06b6d4; }
+  33% { text-shadow: 0 0 3px #ec4899, 0 0 5px #f97316; }
+  66% { text-shadow: 0 0 3px #8b5cf6, 0 0 5px #3b82f6; }
+  100% { text-shadow: 0 0 3px #059669, 0 0 5px #06b6d4; }
+}
+.animate-rgb-text-glow {
+  animation: rgb-text-glow 2s linear infinite;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
