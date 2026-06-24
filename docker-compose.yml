@@ -7,8 +7,8 @@ services:
     container_name: workbridge-db
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: aftabdb
-      MYSQL_DATABASE: workbridge_db
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
       # Expose the database port to the host machine for direct access if needed
       - "3306:3306"
@@ -31,12 +31,12 @@ services:
     environment:
       # Use the service name 'db' to connect to the MySQL container
       - spring.datasource.url=jdbc:mysql://db:3306/workbridge_db?useSSL=false
-      - spring.datasource.username=root
-      - spring.datasource.password=aftabdb
+      - spring.datasource.username=${DB_USERNAME}
+      - spring.datasource.password=${DB_PASSWORD}
       # IMPORTANT: Use strong, unique secrets in a real deployment
-      - JWT_SECRET=YOurSUperSEcureAndLONGBase64EncodedSecretKeyGoesHere1234567890
-      - MAIL_USERNAME=your-email@gmail.com
-      - MAIL_PASSWORD=your-google-app-password
+      - JWT_SECRET=${JWT_SECRET}
+      - MAIL_USERNAME=${MAIL_USERNAME}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
 
   # --- Frontend (React + Nginx) Service ---
   frontend:
@@ -46,7 +46,7 @@ services:
       args:
         # This URL is what the user's browser will use to call the backend.
         # Since the backend port (8080) is exposed to the host, 'localhost' works.
-        - VITE_API_BASE_URL=http://localhost:8080
+        - VITE_API_BASE_URL=${VITE_API_BASE_URL}
     container_name: workbridge-frontend
     restart: unless-stopped
     ports:
