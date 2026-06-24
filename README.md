@@ -16,7 +16,7 @@
 
 ---
 
-# 🌟 Overview
+# 🌟 Overview 
 
 **WorkBridge** is an advanced, animated, cloud-ready **HR Management System (HRMS)** built to streamline organization-wide HR operations.
 
